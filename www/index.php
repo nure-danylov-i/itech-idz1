@@ -20,6 +20,11 @@ $filename = "../data/{$_SESSION['username']}.csv";
 <?php
 echo "<p id=\"user-info\">Ви ввійшли як <b>{$_SESSION['username']}</b> | <a href=login.php>Bихід</a></p>";
 
+if (!file_exists('../data') && !is_dir('../data'))
+{
+    mkdir('../data');
+}
+
 if (!file_exists($filename))
 {
     $fp = fopen($filename, "w");
